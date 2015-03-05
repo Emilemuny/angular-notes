@@ -12,9 +12,9 @@ angular.module('angular-notes', ['ui.router'])
       .state('register', {url:'/register', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
       .state('login', {url:'/login', templateUrl:'/views/users/users.html', controller:'UsersCtrl'})
 
-      .state('notes', {url:'/notes', templateUrl:'/views/notes/notes.html', controller:'NotesCtrl'})
-      .state('notes_new', {url:'/notes_new', templateUrl:'/views/notes/notes_new.html', controller:'NotesCtrl'});
-      .state('notes_list', {url:'/notes_list', templateUrl:'/views/notes/notes_list.html', controller:'NotesCtrl'});
+      .state('notes', {url:'/notes', templateUrl:'/views/notes/notes.html', abstract: true})
+      .state('notes.new', {url:'/new', templateUrl:'/views/notes/notes_new.html', controller:'NotesCtrl'})
+      .state('notes.list', {url:'/notes_list', templateUrl:'/views/notes/notes_list.html', controller:'NotesCtrl'});
 
 }])
   .run(['$rootScope', 'User', function($rootScope, User) {
