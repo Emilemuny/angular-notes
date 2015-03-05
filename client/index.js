@@ -14,7 +14,9 @@ angular.module('angular-notes', ['ui.router'])
 
       .state('notes', {url:'/notes', templateUrl:'/views/notes/notes.html', abstract: true})
       .state('notes.new', {url:'/new', templateUrl:'/views/notes/notes_new.html', controller:'NotesCtrl'})
-      .state('notes.list', {url:'/notes_list', templateUrl:'/views/notes/notes_list.html', controller:'NotesCtrl'});
+      .state('notes.list', {url:'?tag', templateUrl:'/views/notes/notes_list.html', controller:'NotesCtrl'})
+      .state('notes.show', {url:'/{noteId}', templateUrl:'/views/notes/notes_show.html', controller:'NotesCtrl'});
+
 
 }])
   .run(['$rootScope', 'User', function($rootScope, User) {
